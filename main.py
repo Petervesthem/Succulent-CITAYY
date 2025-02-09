@@ -8,8 +8,11 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-player = Player(x=100, y=100,speed=5, image_path="assets/knight.png")
+#player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+player_posx = screen.get_width()/2
+player_posy = screen.get_height()/2
+
+player = Player(x=player_posx, y=player_posy,speed=5, image_path="assets/knight.png")
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
@@ -19,9 +22,9 @@ while running:
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("green")
-    
+
     pygame.sprite
-    pygame.draw.circle(screen, "red", player_pos, 40)
+    #pygame.draw.circle(screen, "red", player_pos, 40)
 
     keys = pygame.key.get_pressed()
     player.move(keys)

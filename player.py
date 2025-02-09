@@ -1,12 +1,27 @@
 import pygame
-class Player(pygame.sprite.Sprite):
+class Player:
 
     #constructor
-    def __init__(self, height, width, color):
-        pygame.sprite.Sprite.__init__(self)
+    def __init__(self, x, y, speed, image_path):
+        self.x = x
+        self.y = y
+        self.speed = speed
+        self.image = pygame.image.load(image_path)
+        self.rect = self.image.get_rect(topleft =(self.x, self.y))
 
-        self.image = pygame.Surface([height, width])
-        self.image.fill(color)
 
-        #update positions by setting x and y values for the rect
-        self.rect = self.image.get_rect()
+    def move (self,keys):
+        if keys[pygame.K_a]:
+            self.x -= self.speed
+        if keys[pygame.K_d]:
+            self.x += self.speed
+        if keys[pygame.K_w]:
+            self.y -= self.speed
+        if keys[pygame.K_s]:
+            self.y += self.speed
+
+        #updating the collision rectangle
+        self.rect.topleft = (self.x, self.y)
+
+    def draw(self, screen):
+        screen.blit(self.image,(self.x, self.y))

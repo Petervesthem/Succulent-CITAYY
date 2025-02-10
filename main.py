@@ -1,6 +1,7 @@
 import pygame
 import map
 from player import Player
+from enemy import Enemy
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
@@ -12,7 +13,9 @@ dt = 0
 player_posx = screen.get_width()/2
 player_posy = screen.get_height()/2
 
-player = Player(x=player_posx, y=player_posy,speed=5, image_path="assets/knight.png")
+player = Player(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/knight.png")
+enemy = Enemy(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/orc.png")
+
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
@@ -21,7 +24,8 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("green")
+    screen.fill("red")
+
 
     pygame.sprite
     #pygame.draw.circle(screen, "red", player_pos, 40)
@@ -29,6 +33,8 @@ while running:
     keys = pygame.key.get_pressed()
     player.move(keys)
     player.draw(screen)
+
+    enemy.draw(screen)
     
 
     # flip() the display to put your work on screen

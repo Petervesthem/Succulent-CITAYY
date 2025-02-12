@@ -2,6 +2,8 @@ import pygame
 import map
 from player import Player
 from enemy import Enemy
+from bullet import Bullet
+
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
@@ -22,6 +24,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            player.shoot()
+        
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("red")
@@ -32,6 +37,15 @@ while running:
 
     keys = pygame.key.get_pressed()
     player.move(keys)
+
+    for bullet in player.bullets[:]:
+        bullet.move()
+        if bullet.y < 0 or bullet.y > screen.get_height or bullet.x > 0 or bullet.x > screen.get_width:
+            player.bullets.remove(bullet)
+    
+
+
+
     player.draw(screen)
 
     enemy.draw(screen)

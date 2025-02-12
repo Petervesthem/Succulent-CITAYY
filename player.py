@@ -3,13 +3,12 @@ from bullet import Bullet
 class Player:
 
     #constructor
-    def __init__(self, x, y, speed, image_path, bullet_image):
+    def __init__(self, x, y, speed, image_path):
         self.x = x
         self.y = y
         self.speed = speed
         self.image = pygame.image.load(image_path)
         self.rect = self.image.get_rect(topleft =(self.x, self.y))
-        #self.bullet_image = bullet_image
         self.bullets = []
 
 

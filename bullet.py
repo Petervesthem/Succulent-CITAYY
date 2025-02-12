@@ -9,7 +9,8 @@ class Bullet:
         self.image = image_path
         self.rect = self.image.get_rect(topleft =(self.x, self.y))
 
-        
+    def move(self):
+        pass
     
     def draw(self, screen):
         screen.blit(self.image,(self.x, self.y))

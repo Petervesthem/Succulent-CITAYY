@@ -14,6 +14,7 @@ dt = 0
 #player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 player_posx = screen.get_width()/2
 player_posy = screen.get_height()/2
+bullets = []
 
 player = Player(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/knight.png")
 enemy = Enemy(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/orc.png")
@@ -25,7 +26,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            player.shoot()
+            player.shoot(bullets)
         
 
     # fill the screen with a color to wipe away anything from last frame
@@ -38,12 +39,14 @@ while running:
     keys = pygame.key.get_pressed()
     player.move(keys)
 
-    for bullet in player.bullets[:]:
+    for bullet in bullets[:]:
         bullet.move()
-        if bullet.y < 0 or bullet.y > screen.get_height or bullet.x > 0 or bullet.x > screen.get_width:
-            player.bullets.remove(bullet)
-    
+        bullet.draw(screen)
 
+        if not screen.get_rect().colliderect(bullet.rect):
+            bullets.remove(bullet)
+            
+    
 
 
     player.draw(screen)

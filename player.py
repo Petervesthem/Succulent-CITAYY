@@ -25,10 +25,16 @@ class Player:
         #updating the collision rectangle
         self.rect.topleft = (self.x, self.y)
     
-    def shoot(self):
+    def shoot(self, bullets):
         mouse_x, mouse_y = pygame.mouse.get_pos()  # Get cursor position
-        bullet = Bullet(self.x + self.rect.width // 2, self.y, mouse_x, mouse_y, speed=10, image=self.bullet_image)
-        self.bullets.append(bullet)
+        bullet_image=pygame.image.load("assets/dummy_textures/bullet.png")
+        bullet = Bullet(x=self.x + self.rect.width // 2,
+                        y=self.y,
+                        target_x=mouse_x,
+                        target_y=mouse_y,
+                        speed=10,
+                        image_path=bullet_image)
+        bullets.append(bullet)
 
     def draw(self, screen):
         screen.blit(self.image,(self.x, self.y))

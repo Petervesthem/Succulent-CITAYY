@@ -30,7 +30,6 @@ class Map:
         [1, 1, 1, 1, 1],
     ]
 
-    #game_map = Map(map_data, (40, 40), tile_set)
 
 
     tile_set = {

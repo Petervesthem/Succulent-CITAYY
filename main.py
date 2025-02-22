@@ -3,6 +3,7 @@ import map
 from player import Player
 from enemy import Enemy
 from bullet import Bullet
+import random
 
 # pygame setup
 pygame.init()
@@ -36,13 +37,21 @@ while running:
     pygame.sprite
     #pygame.draw.circle(screen, "red", player_pos, 40)
 
+    enemyCount = 5
+    enemyList = [] 
+    for i in range(enemyCount):
+        enemies = Enemy(x=random.randint(1,1280), y=random.randint(1,720),speed=5, image_path="assets/dummy_textures/orc.png")
+        enemyList.append(enemies)
+        enemies.draw(screen)
+
+
     keys = pygame.key.get_pressed()
     player.move(keys)
 
     for bullet in bullets[:]:
         bullet.move()
         bullet.draw(screen)
-
+        #Checking if out of bounds --> screen
         if not screen.get_rect().colliderect(bullet.rect):
             bullets.remove(bullet)
             

@@ -3,6 +3,7 @@ import map
 from player import Player
 from enemy import Enemy
 from bullet import Bullet
+from healthpot import HealthPotion
 import random
 
 # pygame setup
@@ -17,7 +18,9 @@ player_posx = screen.get_width()/2
 player_posy = screen.get_height()/2
 bullets = []
 
-player = Player(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/mockplayer.png")
+player = Player(x=player_posx, y=player_posy,image_path="assets/dummy_textures/mockplayer.png")
+healthpot = HealthPotion(x=random.randint(1,1280), y=random.randint(1,720),name= "Health Potion", 
+                         desc="Heals for 20HP", image_path="assets/dummy_textures/healthpot.png")
 #enemy = Enemy(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/mockenemy.png")
 
 enemyCount = 5
@@ -61,6 +64,7 @@ while running:
 
 
     player.draw(screen)
+    healthpot.draw(screen)
 
    
     for enemy in enemyList:

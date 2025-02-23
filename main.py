@@ -17,8 +17,16 @@ player_posx = screen.get_width()/2
 player_posy = screen.get_height()/2
 bullets = []
 
-player = Player(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/knight.png")
-enemy = Enemy(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/orc.png")
+player = Player(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/mockplayer.png")
+#enemy = Enemy(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/mockenemy.png")
+
+enemyCount = 5
+enemyList = [] 
+for i in range(enemyCount):
+    enemies = Enemy(x=random.randint(1,1280), y=random.randint(1,720),speed=5, image_path="assets/dummy_textures/mockenemy.png")
+    enemyList.append(enemies)
+
+    
 
 while running:
     # poll for events
@@ -31,18 +39,12 @@ while running:
         
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("red")
+    screen.fill("green")
 
 
     pygame.sprite
     #pygame.draw.circle(screen, "red", player_pos, 40)
 
-    enemyCount = 5
-    enemyList = [] 
-    for i in range(enemyCount):
-        enemies = Enemy(x=random.randint(1,1280), y=random.randint(1,720),speed=5, image_path="assets/dummy_textures/orc.png")
-        enemyList.append(enemies)
-        enemies.draw(screen)
 
 
     keys = pygame.key.get_pressed()
@@ -60,7 +62,9 @@ while running:
 
     player.draw(screen)
 
-    enemy.draw(screen)
+   
+    for enemy in enemyList:
+        enemy.draw(screen)
     
 
     # flip() the display to put your work on screen

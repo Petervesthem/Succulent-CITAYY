@@ -35,6 +35,10 @@ class Player:
                         speed=10,
                         image_path=bullet_image)
         bullets.append(bullet)
+    
+
+    def pickUp(self, item):
+        pass
 
     def draw(self, screen):
         screen.blit(self.image,(self.x, self.y))

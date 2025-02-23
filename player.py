@@ -1,12 +1,13 @@
 import pygame
 from bullet import Bullet
+from statmanager import StatManager
 class Player:
 
     #constructor
-    def __init__(self, x, y, speed, image_path):
+    def __init__(self, x, y, image_path):
         self.x = x
         self.y = y
-        self.speed = speed
+        self.stat = StatManager(100, 5, 5)
         self.image = pygame.image.load(image_path)
         self.rect = self.image.get_rect(topleft =(self.x, self.y))
         self.bullets = []
@@ -14,13 +15,13 @@ class Player:
 
     def move (self,keys):
         if keys[pygame.K_a]:
-            self.x -= self.speed
+            self.x -= self.stat.speed
         if keys[pygame.K_d]:
-            self.x += self.speed
+            self.x += self.stat.speed
         if keys[pygame.K_w]:
-            self.y -= self.speed
+            self.y -= self.stat.speed
         if keys[pygame.K_s]:
-            self.y += self.speed
+            self.y += self.stat.speed
 
         #updating the collision rectangle
         self.rect.topleft = (self.x, self.y)

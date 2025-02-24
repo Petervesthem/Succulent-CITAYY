@@ -4,6 +4,7 @@ from player import Player
 from enemy import Enemy
 from bullet import Bullet
 from healthpot import HealthPotion
+from coin import Coin
 import random
 
 # pygame setup
@@ -21,12 +22,15 @@ bullets = []
 player = Player(x=player_posx, y=player_posy,image_path="assets/dummy_textures/mockplayer.png")
 healthpot = HealthPotion(x=random.randint(1,1280), y=random.randint(1,720),name= "Health Potion", 
                          desc="Heals for 20HP", image_path="assets/dummy_textures/healthpot.png")
+
+#TODO: In the future Items in general should be randomly spawn not just one coin one healthpot
+coin = Coin(x=random.randint(1,1280), y=random.randint(1,720), name="Coin", desc="great value", image_path="assets/dummy_textures/coin.png")
 #enemy = Enemy(x=player_posx, y=player_posy,speed=5, image_path="assets/dummy_textures/mockenemy.png")
 
 enemyCount = 5
 enemyList = [] 
 for i in range(enemyCount):
-    enemies = Enemy(x=random.randint(1,1280), y=random.randint(1,720),speed=5, image_path="assets/dummy_textures/mockenemy.png")
+    enemies = Enemy(x=random.randint(1,1280), y=random.randint(1,720),speed=5, attack_power=5, health=20, image_path="assets/dummy_textures/mockenemy.png")
     enemyList.append(enemies)
 
     
@@ -65,6 +69,7 @@ while running:
 
     player.draw(screen)
     healthpot.draw(screen)
+    coin.draw(screen)
 
    
     for enemy in enemyList:

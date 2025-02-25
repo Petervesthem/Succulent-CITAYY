@@ -11,4 +11,10 @@ class StatManager:
 
     def increase_speed(self, amount):
         self.speed += amount
-        return self.speed        
+        return self.speed
+
+    def increase_attak_power(self, amount):
+        self.attack_power += amount
+        return self.attack_power
+    
+    

@@ -11,12 +11,14 @@ class Bullet:
 
         target = pygame.Vector2(target_x, target_y)
         pos = pygame.Vector2(self.x,self.y)
-        self.speed = (target - pos).normalize() * speed
+        self.velocity = (target - pos).normalize() * speed
 
     def move(self):
-        pos = pygame.Vector2(self.x,self.y)
-        pos += self.speed
-        self.rect.center = pos
+        self.x += self.velocity.x
+        self.y += self.velocity.y
+        self.rect.center = (self.x, self.y)
+        
+
 
     def draw(self, screen):
         screen.blit(self.image,(self.x, self.y))

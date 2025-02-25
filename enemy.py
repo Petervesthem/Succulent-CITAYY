@@ -9,6 +9,7 @@ class Enemy:
         self.stat = StatManager(health, speed, attack_power)
         self.image = pygame.image.load(image_path)
         self.rect = self.image.get_rect(topleft =(self.x, self.y))
+        self.enemies = []
 
     #should implement following/tracing the player
     def move (self):

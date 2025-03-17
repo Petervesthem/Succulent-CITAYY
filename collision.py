@@ -24,5 +24,3 @@ class Collision:
             player.rect.colliderect(enemy.rect)
             player.statmanager.take_damage(10)
 
-    def check_player_item_collision(player, items):
-        

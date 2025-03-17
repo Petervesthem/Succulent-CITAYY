@@ -66,7 +66,7 @@ while running:
             
     
 
-
+    #TODO: Implement the GameManager here instead of having directly in game loop
     player.draw(screen)
     healthpot.draw(screen)
     coin.draw(screen)

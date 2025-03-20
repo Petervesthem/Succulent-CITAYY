@@ -10,4 +10,16 @@ Planning:
 3b. different pick ups other than just health pots and coins --> keys? make some if not all next rooms unlockable
 3c. Make UI to show how many coins are collected
 
+Multiple types of enemy
+ - different assets
+ - different stats
+
+Find a way to store progress
+
+Implement store rooms
+ - Shop NPC
+ - Shop Items --> Armor + weapons + consumeables OR Cards i.e Passives or special effects to abilities
+
+Implement Ability feature
+    - Start with Barrage
 

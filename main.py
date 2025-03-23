@@ -6,6 +6,7 @@ from bullet import Bullet
 from healthpot import HealthPotion
 from coin import Coin
 import random
+from text import Text
 
 # pygame setup
 pygame.init()
@@ -22,6 +23,9 @@ bullets = []
 player = Player(x=player_posx, y=player_posy,image_path="assets/dummy_textures/mockplayer.png")
 healthpot = HealthPotion(x=random.randint(1,1280), y=random.randint(1,720),name= "Health Potion", 
                          desc="Heals for 20HP", image_path="assets/dummy_textures/healthpot.png")
+
+score_text = Text("Score: 0", x=20, y=20, font_size=30, color=(255, 255, 255))
+gold_text = Text("Gold: 0", x=20, y=45, font_size=30, color=(255, 255, 255))
 
 #TODO: In the future Items in general should be randomly spawn not just one coin one healthpot
 coin = Coin(x=random.randint(1,1280), y=random.randint(1,720), name="Coin", desc="great value", image_path="assets/dummy_textures/coin.png")
@@ -70,7 +74,8 @@ while running:
     player.draw(screen)
     healthpot.draw(screen)
     coin.draw(screen)
-
+    score_text.draw(screen)
+    gold_text.draw(screen)
    
     for enemy in enemyList:
         enemy.draw(screen)

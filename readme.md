@@ -20,6 +20,18 @@ Implement store rooms
  - Shop NPC
  - Shop Items --> Armor + weapons + consumeables OR Cards i.e Passives or special effects to abilities
 
+Pet/companion - Small creature either dealing damage or healing player
+ - Dragon
+ - Dinosaur
+ - Doggo
+
+
+
 Implement Ability feature
     - Start with Barrage
+    - Weapon effects
+    
+
+Score Text
+Gold amount Text
 
